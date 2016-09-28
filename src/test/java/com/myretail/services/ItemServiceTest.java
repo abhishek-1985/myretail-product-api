@@ -4,6 +4,7 @@ package com.myretail.services;
 import com.myretail.Application;
 import com.myretail.model.Pricing;
 import com.myretail.response.ItemDescResponse;
+import com.myretail.response.ItemPricing;
 import com.myretail.response.ItemResponse;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +24,7 @@ import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
@@ -300,5 +302,24 @@ public class ItemServiceTest {
         assertEquals("Apple iPad Air 2 Wi-Fi 16GB, Gold",itemResponse.getName());
         assertEquals(50.0,itemResponse.getItemPricing().getValue(),0.01);
         assertEquals("USD",itemResponse.getItemPricing().getCurrency());
+    }
+
+    @Test
+    public void testupdate() throws Exception{
+
+        ItemPricing inputitemPricing = new ItemPricing();
+        inputitemPricing.setValue((float) 40);
+        inputitemPricing.setCurrency("USD");
+
+        ItemResponse inputItem = new ItemResponse();
+        inputItem.setId("16696652");
+        inputItem.setName("Beats Solo 2 Wireless Headphone Black");
+        inputItem.setItemPricing(inputitemPricing);
+
+        ItemResponse itemResponse = itemService.update(inputItem);
+
+        assertNotNull(itemResponse);
+        assertEquals(40.0,itemResponse.getItemPricing().getValue(),0.01);
+
     }
 }
