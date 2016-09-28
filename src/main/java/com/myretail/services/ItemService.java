@@ -129,10 +129,11 @@ public class ItemService {
      * @return - updated ItemResponse entity with updated pricing
      */
 
-    public ItemResponse update(ItemResponse itemJson) {
+    public ItemResponse update(ItemResponse itemJson) throws IOException{
 
         LOGGER.trace(TRACE_ENTERING, Thread.currentThread().getStackTrace()[1]);
         LOGGER.info("Update pricing with itemid = {} ",itemJson.getId());
+
 
         Pricing existingpricing = pricingMongoRepository.findByitem(itemJson.getId());
 

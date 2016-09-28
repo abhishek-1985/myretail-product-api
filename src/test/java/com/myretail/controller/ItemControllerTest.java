@@ -301,7 +301,7 @@ public class ItemControllerTest {
         inputItem.setName("Beats Solo 2 Wireless Headphone Black");
         inputItem.setItemPricing(inputitemPricing);
 
-        ItemResponse itemResponse = itemController.updateItemPricing(inputItem);
+        ItemResponse itemResponse = itemController.updateItemPricing("16696652",inputItem);
 
         assertNotNull(itemResponse);
         assertEquals(30.0,itemResponse.getItemPricing().getValue(),0.01);

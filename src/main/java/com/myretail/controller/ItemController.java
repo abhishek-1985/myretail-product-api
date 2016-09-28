@@ -51,22 +51,34 @@ public class ItemController {
     /**
      * Return Updated Pricing
      */
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
 
-    public ItemResponse updateItemPricing(@RequestBody ItemResponse item) throws Exception {
+    public ItemResponse updateItemPricing(@PathVariable("id") String id, @RequestBody ItemResponse item) throws Exception {
 
         LOGGER.trace(TRACE_ENTERING, Thread.currentThread().getStackTrace()[1]);
         LOGGER.info("Updating Pricing: {}", item.getId());
 
         LOGGER.trace(TRACE_EXITING, Thread.currentThread().getStackTrace()[1]);
-        return itemService.update(item);
+
+        if(id.equals(item.getId())){
+            return itemService.update(item);
+
+        } else {
+            throw new IdDoesnotMatchException();
+        }
     }
 
     // Custom Runtime exception class for ItemController
     @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "item data not found")  // 404
     protected class ItemNotFoundException extends RuntimeException {
+        // ...
+    }
+
+    // Custom Runtime exception class for ItemController
+    @ResponseStatus(value = HttpStatus.EXPECTATION_FAILED, reason = "Path Variable does not match ID in Request Body")  // 404
+    protected class IdDoesnotMatchException extends RuntimeException {
         // ...
     }
 }
