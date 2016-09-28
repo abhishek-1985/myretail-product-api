@@ -4,6 +4,7 @@ The repository contains source code for myretail-product-api RESTFUL service
 ## Leveraged Technology  
 Role | Technology
 -----|-----------
+Source Control | Git
 Runtime | Java 8
 Database | Mongodb
 Repository | MongoRepository
@@ -19,9 +20,9 @@ Technology | Version | Installation Link
 -----------|---------|------------------
 Java SE Development Kit | 1.8u51 (64-bit) | http://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html#jdk-8u51-oth-JPR
 Intellij Idea IDE for J2EE Developers | Community Edition | https://www.jetbrains.com/idea/download/
-Mongodb | Mongodb Binaries | Follow the instructions in teh follwoing link to install Mongodb and start a mongo server on your local machine :- https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+Mongodb | Mongodb Binaries | Follow the instructions in the follwoing link to install Mongodb and start a mongo server on your local machine :- https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
 
-After downloading and installing the softwares above, you should be able to clone this repository and import it as an existing gradle project into your Intellij Idea workspace. 
+After downloading and installing the softwares above, you should be able to clone this repository ```(git clone https://github.com/abhishek-1985/myretail-product-api.git/)``` or download from git and import it as an existing gradle project into your Intellij Idea workspace. 
 
 ## Database Setup
 
