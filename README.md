@@ -1,5 +1,9 @@
 # myretail-product-api
-The repository contains source code for myretail-product-api RESTFUL service
+The repository contains source code for myretail-product-api RESTFUL service.
+The service provides GET and PUT functionality .
+
+  * GET product id, name, and pricing for an id passed as input
+  * UPDATE pricing for an id passed as an input along with response body in database
 
 ## Leveraged Technology  
 Role | Technology
