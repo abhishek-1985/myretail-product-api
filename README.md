@@ -51,7 +51,22 @@ To start the mongo shell and connect to your MongoDB instance running on localho
 
 ## Service Interaction Points
 ### Item
-Method | URI | Action
--------|-----|-------
-GET | /products/{id} | Retrieves Item data with id
-PUT | /products/{id} | Updates pricing data for id
+
+Port :- 8080
+
+Method | URI | Example | Action 
+-------|-----|---------|--------
+GET | /products/{id} | http://localhost:8080/products/15117729 | Retrieves Item data with id
+PUT | /products/{id} | http://localhost:8080/products/15117729 | Updates pricing data for id
+
+For PUT , please provide response body. E.g - 
+```
+    {
+      "id": "16696652",
+      "name": "Beats Solo 2 Wireless Headphone Black",
+      "current_price": {
+        "value": 30,
+        "currency_code": "USD"
+      }
+    }
+```    
